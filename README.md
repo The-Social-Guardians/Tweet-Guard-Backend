@@ -1,16 +1,16 @@
 <div align="center">
   <p align="center">
-    <a href="https://github.com/Dun-sin/anon-chat-app/issues/new?assignees=&labels=bug&template=bug_report.md&title=">View Demo</a>
+    <a href="https://github.com/The-Social-Guardians/Tweet-Guard-Backend/issues/new?assignees=&labels=bug&template=bug_report.md&title=">View Demo</a>
     ·
-    <a href="https://github.com/Dun-sin/anon-chat-app/issues/new?assignees=&labels=bug&template=bug.yml&title=%5BBUG%5D+%3Cdescription%3E">Report Bug</a>
+    <a href="https://github.com/The-Social-Guardians/Tweet-Guard-Backend/issues/new?assignees=&labels=bug&template=bug.yml&title=%5BBUG%5D+%3Cdescription%3E">Report Bug</a>
     ·
-    <a href="https://github.com/Dun-sin/anon-chat-app/issues/new?assignees=&labels=feature&template=features.yml&title=%5BFEATURE%5D+%3Cdescription%3E">Request Feature</a>
+    <a href="https://github.com/The-Social-Guardians/Tweet-Guard-Backend/issues/new?assignees=&labels=feature&template=features.yml&title=%5BFEATURE%5D+%3Cdescription%3E">Request Feature</a>
   </p>
 
-  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/Dun-sin/anon-chat-app?style=flat">
-  <img alt="contributors" src="https://img.shields.io/github/contributors/Dun-sin/anon-chat-app?style=flat">
-  <img alt="GitHub Repo forks" src="https://img.shields.io/github/forks/Dun-sin/anon-chat-app?style=flat">
-  <img alt="issues" src="https://img.shields.io/github/issues/Dun-sin/anon-chat-app?style=flat"> </br>
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/The-Social-Guardians/Tweet-Guard-Backend?style=flat">
+  <img alt="contributors" src="https://img.shields.io/github/contributors/The-Social-Guardians/Tweet-Guard-Backend?style=flat">
+  <img alt="GitHub Repo forks" src="https://img.shields.io/github/forks/The-Social-Guardians/Tweet-Guard-Backend?style=flat">
+  <img alt="issues" src="https://img.shields.io/github/issues/The-Social-Guardians/Tweet-Guard-Backend?style=flat"> </br>
 </div>
 
 ## 📚 Getting Started
@@ -67,9 +67,9 @@ TweetGuard is licensed under the MIT License - see the [LICENSE](LICENSE) file f
 
 ## 💪🏽 Thanks to all Contributors
 
-Thanks a lot for spending your time helping anonchat grow. Thanks a lot! Keep rocking🍻
+Thanks a lot for spending your time helping TweetGuard grow. Thanks a lot! Keep rocking🍻
 
-[![Contributors](https://contrib.rocks/image?repo=The-Social-Guardians/Tweet-Guard-Backend)](https://github.com/Dun-sin/anon-chat-app/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=The-Social-Guardians/Tweet-Guard-Backend)](https://github.com/The-Social-Guardians/Tweet-Guard-Backend/graphs/contributors)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
