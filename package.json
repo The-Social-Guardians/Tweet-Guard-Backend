@@ -1,0 +1,34 @@
+{
+  "name": "tweet-guard-backend",
+  "version": "0.0.0-development",
+  "description": "Backend for the tweet guard application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "semantic-release": "semantic-release --branches main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/The-Social-Guardians/Tweet-Guard-Backend.git"
+  },
+  "keywords": [
+    "Twitter",
+    "backend",
+    "app"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/The-Social-Guardians/Tweet-Guard-Backend/issues"
+  },
+  "homepage": "https://github.com/The-Social-Guardians/Tweet-Guard-Backend#readme",
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0",
+    "semantic-release": "^19.0.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
