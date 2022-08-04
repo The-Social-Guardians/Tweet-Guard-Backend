@@ -1,7 +1,7 @@
-const Strategy = require('passport-twitter').Strategy;
+import { Strategy } from 'passport-twitter';
 
 //check here for reference => https://www.passportjs.org/packages/passport-twitter/
-module.exports = function (passport) {
+export default function (passport) {
     passport.use(
         new Strategy(
             {
@@ -25,11 +25,11 @@ module.exports = function (passport) {
         )
     );
 
-    passport.serializeUser(function (user, cb) {
+    passport.serializeUser((user, cb) => {
         cb(null, user);
     });
 
-    passport.deserializeUser(function (obj, cb) {
+    passport.deserializeUser((obj, cb) => {
         cb(null, obj);
     });
-};
+}
