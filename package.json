@@ -3,6 +3,7 @@
   "version": "0.0.0-development",
   "description": "Backend for the tweet guard application",
   "main": "index.js",
+  "type" : "module" , 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "semantic-release": "semantic-release --branches main"
@@ -30,5 +31,14 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.5.0",
+    "passport": "^0.6.0",
+    "passport-twitter": "^1.0.4",
+    "twit": "^2.2.11"
   }
 }
