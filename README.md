@@ -56,6 +56,33 @@ Before installation, please make sure you have already installed the following t
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## 🥂 After making a change - Pushing to github
+
+1. Create a new branch
+
+```bash
+git checkout -b YourBranchName
+```
+
+2. Add it to staging area
+
+> NOTE: don't commit the package.json unless you are installing a new package
+
+```bash
+git add .
+```
+
+3. Commit your changes with
+
+```bash
+git cz
+```
+
+4. Push your changes
+```bash
+git push
+```
+
 ## 👨‍👩‍👦 Community
 Don't forget to join the discord community - [Join us](https://discord.gg/KUWjx4fygJ) 
 
