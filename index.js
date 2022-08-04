@@ -1,10 +1,11 @@
 import express from 'express';
 import { config } from 'dotenv';
-import passport, { initialize, authenticate } from 'passport'; //we need to use passport as an authentication middleware. Read more here =>  https://www.passportjs.org/
+import passport from 'passport'; //we need to use passport as an authentication middleware. Read more here =>  https://www.passportjs.org/
 import session from 'express-session';
+import twitter from './src/PassportStrategies/Twitter.js';
 
 config();
-require('./src/PassportStrategies/Twitter').default(passport);
+twitter(passport);
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -17,15 +18,15 @@ app.use(
         saveUninitialized: false,
     })
 );
-app.use(initialize());
+app.use(passport.initialize());
 
-//end point for auth. Check ./passportTwitter to see what happens during auth
-app.get('/api/auth', authenticate('twitter'));
+//end point for auth. Check ./src/PassportStrategies/Twitter.js to see what happens during auth
+app.get('/api/auth', passport.authenticate('twitter'));
 
 //this callback is called automatically after auth : reference => https://www.passportjs.org/packages/passport-twitter/
 app.get(
     '/api/user/twitter/callback',
-    authenticate('twitter', {
+    passport.authenticate('twitter', {
         assignProperty: 'federatedUser',
         failureRedirect: 'http://localhost:5000/failure', // auth failure redirect
     }),
