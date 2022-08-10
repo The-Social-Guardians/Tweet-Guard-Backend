@@ -12,14 +12,6 @@ export default function (passport) {
                     'https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true',
             },
             async (token, tokenSecret, profile, cb) => {
-                console.log(
-                    'User Token is ',
-                    token,
-                    'User Token Secret is ',
-                    tokenSecret,
-                    ' and user profile info is ',
-                    profile
-                );
                 cb(null, profile);
             }
         )
