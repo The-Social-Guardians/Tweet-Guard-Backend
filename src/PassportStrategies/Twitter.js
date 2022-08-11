@@ -31,10 +31,10 @@ export default function (passport) {
                     return cb(null, userExists.lean())
                 } else {
                     const newUser = UserModel.create({
-                        twitterInfo: {
-                            id: profile.id
-                        },
-                        registeredAt: getCurrentDate()
+                        twitterId: profile.id,
+                        twitterUsername: profile.displayName,
+                        twitterProfilePictureSrc: profile.photos[0],
+                        registeredAt: getCurrentDate(),
                     })
 
                     UserAccessTokenModel.create({
