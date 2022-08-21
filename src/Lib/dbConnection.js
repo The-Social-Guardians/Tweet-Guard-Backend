@@ -1,4 +1,5 @@
-import { connect as mongooseConnect, connection } from "mongoose";
+import mongoose from "mongoose";
+const { connect: mongooseConnect, connection } = mongoose;
 
 export function connect() {
     // TODO: Fetch MONGO_URL from .env.dev when in dev mode
