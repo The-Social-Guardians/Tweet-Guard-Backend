@@ -1,8 +1,8 @@
 import { Strategy } from 'passport-twitter';
-import UserModel from '../Models/UserModel';
-import UserAccessTokenModel from '../Models/UserAccessTokenModel';
+import UserModel from '../Models/UserModel.js';
+import UserAccessTokenModel from '../Models/UserAccessTokenModel.js';
 
-function getCurrentDate(){
+function getCurrentDate() {
     let today = new Date();
     const dd = String(today.getDate()).padStart(2, '0');
     const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -24,29 +24,29 @@ export default function (passport) {
                     'https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true',
             },
             async (token, tokenSecret, profile, cb) => {
-               try{
-                const userExists = await UserModel.findOne({twitterId: profile.id})
+                try {
+                    const userExists = await UserModel.findOne({ twitterId: profile.id })
 
-                if(userExists) {
-                    return cb(null, userExists.lean())
-                } else {
-                    const newUser = UserModel.create({
-                        twitterId: profile.id,
-                        twitterUsername: profile.displayName,
-                        twitterProfilePictureSrc: profile.photos[0],
-                        registeredAt: getCurrentDate(),
-                    })
+                    if (userExists) {
+                        return cb(null, userExists.lean())
+                    } else {
+                        const newUser = UserModel.create({
+                            twitterId: profile.id,
+                            twitterUsername: profile.displayName,
+                            twitterProfilePictureSrc: profile.photos[0],
+                            registeredAt: getCurrentDate(),
+                        })
 
-                    UserAccessTokenModel.create({
-                        user: newUser,
-                        accessToken: token,
-                        accessTokenSecret: tokenSecret
-                    })
-                    return cb(null, newUser.json())
+                        UserAccessTokenModel.create({
+                            user: newUser,
+                            accessToken: token,
+                            accessTokenSecret: tokenSecret
+                        })
+                        return cb(null, newUser.json())
+                    }
+                } catch (e) {
+                    return cb(error)
                 }
-               } catch(e) {
-                return cb(error)
-               }
             }
         )
     );
