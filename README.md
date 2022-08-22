@@ -22,6 +22,7 @@ Before installation, please make sure you have already installed the following t
 
 - [Git](https://git-scm.com/downloads)
 - [NodeJs](https://nodejs.org/en/download/)
+- [Docker](https://docker.com/get-started/)
 
 ### 🛠️ Installation
 
@@ -44,6 +45,15 @@ Before installation, please make sure you have already installed the following t
 3. Install Package for conventional Commits
    ```bash
    npm install -g commitizen 
+   ```
+4. Use `.env_template` to configure the `.env` file for your dev environment
+5. Start the Dev Server
+   ```bash
+   npm run dev
+   ```
+6. Stop the Dev Mongo Instance
+   ```bash
+   docker compose down
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
