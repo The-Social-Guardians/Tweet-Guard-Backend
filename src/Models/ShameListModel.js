@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 const { model, Schema } = mongoose;
 
 const ShameListSchema = new Schema({
-    _id: Schema.Types.ObjectId,
     user: {
         type: Schema.Types.ObjectId,
         required: true,
