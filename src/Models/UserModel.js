@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import UserAccessTokenModel from "./UserAccessTokenModel.js";
 const { model, Schema } = mongoose;
 
 const UserSchema = new Schema({
@@ -51,6 +52,18 @@ const UserSchema = new Schema({
     registeredAt: {
         type: Date,
         default: Date.now,
+    }
+}, {
+    methods: {
+        getAccessToken(cb) {
+            return UserAccessTokenModel.findOne({
+                user: this._id
+            }, cb, {
+                sort: {
+                    registeredAt: -1
+                }
+            })
+        }
     }
 });
 
