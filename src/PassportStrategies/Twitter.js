@@ -45,7 +45,7 @@ export default function (passport) {
                         return cb(null, newUser.json())
                     }
                 } catch (e) {
-                    return cb(error)
+                    return cb(e)
                 }
             }
         )
