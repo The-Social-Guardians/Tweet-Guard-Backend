@@ -13,8 +13,8 @@ export function connect() {
 
     connection.on(
         "error",
-        () => {
-            throw new Error("❌ mongodb connection error")
+        (e) => {
+            throw new Error("❌ mongodb connection failed, reason: " + e.message)
         }
     );
     connection.once("open", () => console.log("✅ mongodb connected successfully"));
