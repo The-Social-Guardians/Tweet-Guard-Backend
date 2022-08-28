@@ -25,24 +25,26 @@ export default function (passport) {
             },
             async (token, tokenSecret, profile, cb) => {
                 try {
-                    const userExists = await UserModel.findOne({ twitterId: profile.id })
+                    const userExists = await UserModel.findOne({ twitterId: profile.id }).lean()
 
                     if (userExists) {
-                        return cb(null, userExists.lean())
+                        return cb(null, userExists)
                     } else {
-                        const newUser = UserModel.create({
+                        const newUser = await UserModel.create({
                             twitterId: profile.id,
-                            twitterUsername: profile.displayName,
-                            twitterProfilePictureSrc: profile.photos[0],
-                            registeredAt: getCurrentDate(),
+                            twitterUsername: profile.username,
+                            twitterProfilePictureSrc: profile.photos[0].value,
                         })
 
-                        UserAccessTokenModel.create({
+                        await UserAccessTokenModel.create({
                             user: newUser,
                             accessToken: token,
                             accessTokenSecret: tokenSecret
                         })
-                        return cb(null, newUser.json())
+
+                        return cb(null, newUser.toObject({
+                            flattenMaps: true
+                        }))
                     }
                 } catch (e) {
                     return cb(e)
