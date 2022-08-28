@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 const { model, Schema } = mongoose;
 
 const UserSchema = new Schema({
-    _id: Schema.Types.ObjectId,
     twitterId: {
         type: String,
         required: true
