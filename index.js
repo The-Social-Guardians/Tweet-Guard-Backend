@@ -2,6 +2,7 @@ import express from 'express';
 import { config } from 'dotenv';
 import passport from 'passport'; //we need to use passport as an authentication middleware. Read more here =>  https://www.passportjs.org/
 import session from 'express-session';
+import MongoStore from 'connect-mongo';
 import twitter from './src/PassportStrategies/Twitter.js';
 import { connect as connectDb } from './src/Lib/dbConnection.js';
 
@@ -18,6 +19,9 @@ app.use(
         secret: process.env.SESSION_SECRET,
         resave: false,
         saveUninitialized: false,
+        store: MongoStore.create({
+            mongoUrl: process.env.MONGO_URL
+        })
     })
 );
 app.use(passport.initialize());
