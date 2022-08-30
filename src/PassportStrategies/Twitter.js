@@ -4,16 +4,6 @@ import UserModel from '../Models/UserModel.js';
 import UserAccessTokenModel from '../Models/UserAccessTokenModel.js';
 import { isDevMode } from '../Lib/utils.js';
 
-function getCurrentDate() {
-    let today = new Date();
-    const dd = String(today.getDate()).padStart(2, '0');
-    const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    const yyyy = today.getFullYear();
-
-    today = mm + '/' + dd + '/' + yyyy;
-    return today;
-}
-
 //check here for reference => https://www.passportjs.org/packages/passport-twitter/
 /**
  * 
