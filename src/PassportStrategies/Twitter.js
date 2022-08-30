@@ -1,25 +1,21 @@
 import { Strategy } from 'passport-twitter';
+import { PassportStatic } from 'passport';
 import UserModel from '../Models/UserModel.js';
 import UserAccessTokenModel from '../Models/UserAccessTokenModel.js';
-
-function getCurrentDate() {
-    let today = new Date();
-    const dd = String(today.getDate()).padStart(2, '0');
-    const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    const yyyy = today.getFullYear();
-
-    today = mm + '/' + dd + '/' + yyyy;
-    return today;
-}
+import { isDevMode } from '../Lib/utils.js';
 
 //check here for reference => https://www.passportjs.org/packages/passport-twitter/
+/**
+ * 
+ * @param {PassportStatic} passport 
+ */
 export default function (passport) {
     passport.use(
         new Strategy(
             {
                 consumerKey: process.env.TWITTER_CONSUMER_KEY,
                 consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-                callbackURL: 'http://localhost:5000/api/user/twitter/callback',
+                callbackURL: isDevMode() ? 'http://localhost:5000/auth/twitter/callback' : 'https://tweet-guard-backend.herokuapp.com/auth/twitter/callback', // NOTE: the prod url is not created yet!
                 userProfileURL:
                     'https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true',
             },
