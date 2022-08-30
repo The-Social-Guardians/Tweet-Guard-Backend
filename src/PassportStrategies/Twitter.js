@@ -1,4 +1,5 @@
 import { Strategy } from 'passport-twitter';
+import { PassportStatic } from 'passport';
 import UserModel from '../Models/UserModel.js';
 import UserAccessTokenModel from '../Models/UserAccessTokenModel.js';
 import { isDevMode } from '../Lib/utils.js';
@@ -14,6 +15,10 @@ function getCurrentDate() {
 }
 
 //check here for reference => https://www.passportjs.org/packages/passport-twitter/
+/**
+ * 
+ * @param {PassportStatic} passport 
+ */
 export default function (passport) {
     passport.use(
         new Strategy(
