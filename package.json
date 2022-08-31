@@ -1,6 +1,7 @@
 {
   "name": "tweet-guard-backend",
   "version": "0.0.0-development",
+  "private": true,
   "description": "Backend for the tweet guard application",
   "main": "index.js",
   "type": "module",
