@@ -22,9 +22,6 @@ const JwtMiddleware = (passport) => (req, res, next) => {
             }
 
             throw new InternalServerException(response)
-
-            res.json(response).status(500)
-            return;
         }
 
         if (!user) {
