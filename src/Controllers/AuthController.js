@@ -1,6 +1,7 @@
 import passport from "passport";
 import jwt from 'jsonwebtoken';
 import { isDevMode } from "../Lib/utils.js";
+import InternalServerException from "../Exceptions/InternalServerException.js";
 
 const twitterAuth = passport.authenticate('twitter');
 
@@ -12,10 +13,7 @@ const twitterAuthCallback = (req, res, next) => {
         failureRedirect: 'http://localhost:5000/failure', // auth failure redirect,
     }, async (err, user, info, status) => {
         if (!user) {
-            res.json({
-                message: 'An unknown error occured'
-            }).status(500)
-            return;
+            throw new InternalServerException('An unknown error occured')
         }
 
         const token = jwt.sign({
