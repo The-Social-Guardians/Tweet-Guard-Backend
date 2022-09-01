@@ -35,11 +35,5 @@ export default () => {
         });
     });
 
-    router.get('/test', (req, res, next) => {
-        res.json({
-            message: 'JWT is finally working for /api endpoints!',
-        });
-    });
-
     return router;
 };
