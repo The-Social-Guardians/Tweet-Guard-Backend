@@ -21,7 +21,7 @@ export default () => {
                 token,
             },
             {
-                user: req.user.id,
+                user: req.user,
                 token,
             },
             {
