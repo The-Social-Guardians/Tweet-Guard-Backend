@@ -1,7 +1,7 @@
-import HttpException from "./HttpException.js"
+import HttpException from './HttpException.js';
 
 export default class HttpAuthenticationException extends HttpException {
     constructor(message) {
-        super(message, 401)
+        super(message, 401);
     }
 }

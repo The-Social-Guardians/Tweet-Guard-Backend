@@ -1,24 +1,25 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
+
 const { model, Schema } = mongoose;
 
 const ShameListSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         required: true,
-        ref: 'User'
+        ref: 'User',
     },
     shamedUserId: {
         type: String,
-        required: true
+        required: true,
     },
     shamedAt: {
         type: Date,
-        default: Date.now
+        default: Date.now,
     },
     originalReport: {
         type: Schema.Types.ObjectId,
-        ref: 'ShameReport'
-    }
+        ref: 'ShameReport',
+    },
 });
 
-export default model('ShameList', ShameListSchema)
+export default model('ShameList', ShameListSchema);

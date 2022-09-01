@@ -1,36 +1,37 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
+
 const { model, Schema } = mongoose;
 
 const UserAccessTokenSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         required: true,
-        ref: 'User'
+        ref: 'User',
     },
     accessToken: {
         type: String,
-        required: true
+        required: true,
     },
     accessTokenSecret: {
         type: String,
-        required: true
+        required: true,
     },
     refreshToken: {
         type: String,
-        default: ''
+        default: '',
     },
     platform: {
         type: String,
-        default: 'twitter' // twitter, facebook, instagram, etc
+        default: 'twitter', // twitter, facebook, instagram, etc
     },
     obtainedAt: {
         type: Date,
-        default: Date.now
+        default: Date.now,
     },
     lastRefreshedAt: {
         type: Schema.Types.Mixed, // null | Date
-        default: null
-    }
+        default: null,
+    },
 });
 
-export default model('UserAccessToken', UserAccessTokenSchema)
+export default model('UserAccessToken', UserAccessTokenSchema);

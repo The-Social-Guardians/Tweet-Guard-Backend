@@ -1,13 +1,13 @@
-import passport from 'passport';
 import jwt from 'jsonwebtoken';
-import { isDevMode } from '../Lib/utils.js';
+import passport from 'passport';
+
 import InternalServerException from '../Exceptions/InternalServerException.js';
+import { createController, isDevMode } from '../Lib/utils.js';
 
 const twitterAuth = passport.authenticate('twitter');
 
 //this callback is called automatically after auth : reference => https://www.passportjs.org/packages/passport-twitter/
-/** @type {import("express").RequestHandler} */
-const twitterAuthCallback = (req, res, next) => {
+const twitterAuthCallback = createController((req, res, next) => {
     passport.authenticate(
         'twitter',
         {
@@ -39,6 +39,6 @@ const twitterAuthCallback = (req, res, next) => {
             ); //auth success redirect
         }
     )(req, res, next);
-};
+});
 
 export { twitterAuth, twitterAuthCallback };

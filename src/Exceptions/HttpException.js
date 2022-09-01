@@ -1,19 +1,19 @@
 export default class HttpException extends Error {
-    #code
-    #message
+    #code;
+    #message;
 
     constructor(message, code = 500) {
-        super(message)
+        super(message);
 
-        this.#code = code
-        this.#message = message
+        this.#code = code;
+        this.#message = message;
     }
 
     getMessage() {
-        return this.#message
+        return this.#message;
     }
 
     getCode() {
-        return this.#code
+        return this.#code;
     }
 }
