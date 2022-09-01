@@ -33,10 +33,15 @@ const JwtMiddleware = (passport) => (req, res, next) => {
                 token,
             });
 
-            if (!user || !token || tokenInvalidated) {
+            if (!token || tokenInvalidated) {
+                next(new HttpAuthenticationException('Invalid JWT'));
+                return;
+            }
+
+            if (!user) {
                 next(
                     new HttpAuthenticationException(
-                        info?.message ?? 'Authentication error'
+                        info?.message ?? 'User not found'
                     )
                 );
             }
