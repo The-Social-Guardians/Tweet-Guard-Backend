@@ -3,10 +3,17 @@ export default class HttpException extends Error {
     #message;
 
     constructor(message, code = 500) {
-        super(message);
+        if (message instanceof Error) {
+            super(message.message);
+            super.stack = message.stack;
+            super.name = message.name;
+            this.#message = message.message;
+        } else {
+            super(message);
+            this.#message = message;
+        }
 
         this.#code = code;
-        this.#message = message;
     }
 
     getMessage() {
@@ -15,5 +22,13 @@ export default class HttpException extends Error {
 
     getCode() {
         return this.#code;
+    }
+
+    getStack() {
+        return this.stack;
+    }
+
+    getName() {
+        return this.name;
     }
 }
