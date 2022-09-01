@@ -20,7 +20,7 @@ app.use('/auth', authRouter());
 app.use('/api', apiRouter());
 app.use((err, req, res, next) => {
     if (!(err instanceof HttpException)) {
-        throw new InternalServerException(err);
+        err = new InternalServerException(err);
     }
 
     const response =
