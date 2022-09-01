@@ -1,20 +1,21 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
+
 const { model, Schema } = mongoose;
 
 const ShameWhiteListSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         required: true,
-        ref: 'User'
+        ref: 'User',
     },
     trustedUserId: {
         type: String,
-        required: true
+        required: true,
     },
     trustedAt: {
         type: Date,
-        default: Date.now
-    }
+        default: Date.now,
+    },
 });
 
-export default model('ShameWhiteList', ShameWhiteListSchema)
+export default model('ShameWhiteList', ShameWhiteListSchema);
