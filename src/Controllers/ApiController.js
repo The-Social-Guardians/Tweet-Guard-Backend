@@ -53,4 +53,31 @@ const JwtMiddleware = (passport) => (req, res, next) => {
     )(req, res, next);
 };
 
-export { JwtMiddleware };
+/**
+ *
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
+const logout = (req, res) => {
+    const token = req.headers.authorization?.split(' ')[1];
+
+    InvalidatedJwt.findOneAndUpdate(
+        {
+            token,
+        },
+        {
+            user: req.user,
+            token,
+        },
+        {
+            upsert: true,
+            setDefaultsOnInsert: true,
+        }
+    ).then(() => {
+        res.status(200).json({
+            message: 'Logout successful!',
+        });
+    });
+};
+
+export { JwtMiddleware, logout };
