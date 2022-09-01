@@ -4,5 +4,9 @@
   "trailingComma": "es5",
   "bracketSameLine": false,
   "endOfLine": "lf",
-  "editorconfig": true
+  "editorconfig": true,
+  "importOrder": ["^src/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderCaseInsensitive": true
 }
