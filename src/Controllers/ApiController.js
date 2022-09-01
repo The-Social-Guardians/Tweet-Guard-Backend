@@ -5,7 +5,7 @@ import HttpAuthenticationException from '../Exceptions/HttpAuthenticationExcepti
 import InvalidatedJwt from '../Models/InvalidatedJwtModel.js';
 
 /**
- * @param {import("passport").PassportStatic} passport
+ * @param {passport.PassportStatic} passport
  */
 const JwtMiddleware = (passport) =>
     createController((req, res, next) => {
