@@ -1,13 +1,14 @@
-import {
-    twitterAuth,
-    twitterAuthCallback,
-} from '../Controllers/AuthController.js';
-import twitter from '../PassportStrategies/Twitter.js';
 import MongoStore from 'connect-mongo';
 import { Router } from 'express';
 //we need to use passport as an authentication middleware. Read more here =>  https://www.passportjs.org/
 import session from 'express-session';
 import passport from 'passport';
+
+import {
+    twitterAuth,
+    twitterAuthCallback,
+} from '../Controllers/AuthController.js';
+import twitter from '../PassportStrategies/Twitter.js';
 
 export default () => {
     const router = Router();

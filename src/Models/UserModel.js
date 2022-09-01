@@ -1,5 +1,6 @@
-import UserAccessTokenModel from './UserAccessTokenModel.js';
 import mongoose from 'mongoose';
+
+import UserAccessTokenModel from './UserAccessTokenModel.js';
 
 const { model, Schema } = mongoose;
 

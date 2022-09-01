@@ -1,8 +1,9 @@
+import passport from 'passport';
+
 import HttpAuthenticationException from '../Exceptions/HttpAuthenticationException.js';
 import InternalServerException from '../Exceptions/InternalServerException.js';
-import { isDevMode, createController } from '../Lib/utils.js';
+import { createController, isDevMode } from '../Lib/utils.js';
 import InvalidatedJwt from '../Models/InvalidatedJwtModel.js';
-import passport from 'passport';
 
 /**
  * @param {passport.PassportStatic} passport

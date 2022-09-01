@@ -1,3 +1,6 @@
+import { config } from 'dotenv';
+import express from 'express';
+
 import HttpException from './src/Exceptions/HttpException.js';
 import InternalServerException from './src/Exceptions/InternalServerException.js';
 import { connect as connectDb } from './src/Lib/dbConnection.js';
@@ -5,8 +8,6 @@ import { isDevMode } from './src/Lib/utils.js';
 import apiRouter from './src/Routes/api.js';
 import authRouter from './src/Routes/auth.js';
 import indexRouter from './src/Routes/index.js';
-import { config } from 'dotenv';
-import express from 'express';
 
 config();
 connectDb();

@@ -1,5 +1,6 @@
+import { ExtractJwt, Strategy } from 'passport-jwt';
+
 import User from '../Models/UserModel.js';
-import { Strategy, ExtractJwt } from 'passport-jwt';
 
 /**
  *
