@@ -28,6 +28,7 @@
   "devDependencies": {
     "cz-conventional-changelog": "^3.3.0",
     "nodemon": "^2.0.19",
+    "prettier": "2.7.1",
     "semantic-release": "^19.0.3"
   },
   "config": {
