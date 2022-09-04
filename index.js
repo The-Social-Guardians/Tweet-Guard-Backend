@@ -8,6 +8,7 @@ import { isDevMode } from './src/Lib/utils.js';
 import apiRouter from './src/Routes/api.js';
 import authRouter from './src/Routes/auth.js';
 import indexRouter from './src/Routes/index.js';
+import userRouter from './src/Routes/user.js';
 
 config();
 connectDb();
@@ -18,6 +19,7 @@ const app = express();
 app.use('/', indexRouter());
 app.use('/auth', authRouter());
 app.use('/api', apiRouter());
+app.use('/user', userRouter());
 app.use((err, req, res, next) => {
     if (!(err instanceof HttpException)) {
         err = new InternalServerException(err);
