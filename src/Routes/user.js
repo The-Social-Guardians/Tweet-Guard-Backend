@@ -1,10 +1,14 @@
 import bodyParser from 'body-parser';
-import { Router } from 'express';
+import {Router} from 'express';
 import passport from 'passport';
 
-import { logout } from '../Controllers/ApiController.js';
 import jwt from '../PassportStrategies/Jwt.js';
 import JwtMiddleware from "../Middleware/JwtMiddleware.js";
+import {
+    getUserShamelist,
+    getWhitelist,
+    reportUser
+} from "../Controllers/UserController.js";
 
 export default () => {
     const router = Router();
@@ -13,7 +17,12 @@ export default () => {
     router.use(JwtMiddleware(passport));
     router.use(bodyParser.json());
 
-    router.get('/logout', logout);
+
+    router.get('/shamelist', getUserShamelist);
+
+    router.post('/shamelist/report', reportUser);
+
+    router.post('/whitelist', getWhitelist);
 
     return router;
 };
