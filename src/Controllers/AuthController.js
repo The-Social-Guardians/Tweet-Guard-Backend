@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import passport from 'passport';
 
 import InternalServerException from '../Exceptions/InternalServerException.js';
-import { createController, isDevMode } from '../Lib/utils.js';
+import { createController, isDevMode } from '../Lib/Util.js';
 
 const twitterAuth = passport.authenticate('twitter');
 

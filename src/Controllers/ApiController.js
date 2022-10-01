@@ -2,7 +2,7 @@ import passport from 'passport';
 
 import HttpAuthenticationException from '../Exceptions/HttpAuthenticationException.js';
 import InternalServerException from '../Exceptions/InternalServerException.js';
-import { createController, isDevMode } from '../Lib/utils.js';
+import { createController, isDevMode } from '../Lib/Util.js';
 import InvalidatedJwt from '../Models/InvalidatedJwtModel.js';
 
 /**

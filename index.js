@@ -1,16 +1,16 @@
-import { config } from 'dotenv';
+import { config as configEnvVas } from 'dotenv';
 import express from 'express';
 
 import HttpException from './src/Exceptions/HttpException.js';
 import InternalServerException from './src/Exceptions/InternalServerException.js';
-import { connect as connectDb } from './src/Lib/dbConnection.js';
-import { isDevMode } from './src/Lib/utils.js';
+import { connect as connectToDb } from './src/Lib/Db.js';
+import { isDevMode } from './src/Lib/Util.js';
 import apiRouter from './src/Routes/api.js';
 import authRouter from './src/Routes/auth.js';
 import indexRouter from './src/Routes/index.js';
 
-config();
-connectDb();
+configEnvVas();
+connectToDb();
 
 const PORT = process.env.PORT || 5000;
 const app = express();
