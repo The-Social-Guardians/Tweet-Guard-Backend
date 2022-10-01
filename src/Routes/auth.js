@@ -7,12 +7,12 @@ import passport from 'passport';
 import {
     twitterAuth,
     twitterAuthCallback,
-} from '../Controllers/AuthController.js';
-import twitter from '../PassportStrategies/Twitter.js';
+} from '../Controller/AuthController.js';
+import { TwitterStrategy as useTwitterPassportStrategy } from '../PassportStrategy/index.js';
 
 export default () => {
     const router = Router();
-    twitter(passport);
+    useTwitterPassportStrategy(passport);
 
     //apparently cant use passportJs without setting up a session
     router.use(

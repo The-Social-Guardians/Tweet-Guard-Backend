@@ -1,8 +1,7 @@
 import { Strategy } from 'passport-twitter';
 
 import { isDevMode } from '../Lib/Util.js';
-import UserAccessTokenModel from '../Models/UserAccessTokenModel.js';
-import UserModel from '../Models/UserModel.js';
+import { UserAccessTokenModel, UserModel } from '../Model/index.js';
 
 //check here for reference => https://www.passportjs.org/packages/passport-twitter/
 /**
