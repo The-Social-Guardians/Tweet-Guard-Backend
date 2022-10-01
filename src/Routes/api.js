@@ -3,7 +3,7 @@ import { Router } from 'express';
 import passport from 'passport';
 
 import { JwtMiddleware, logout } from '../Controller/ApiController.js';
-import useJwtPassportStrategy from '../PassportStrategy/JwtStrategy.js';
+import { JwtStrategy as useJwtPassportStrategy } from '../PassportStrategy/index.js';
 
 export default () => {
     const router = Router();
