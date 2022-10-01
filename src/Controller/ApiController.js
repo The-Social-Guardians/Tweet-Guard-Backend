@@ -1,9 +1,11 @@
 import passport from 'passport';
 
-import HttpAuthenticationException from '../Exceptions/HttpAuthenticationException.js';
-import InternalServerException from '../Exceptions/InternalServerException.js';
-import { createController, isDevMode } from '../Lib/utils.js';
-import InvalidatedJwt from '../Models/InvalidatedJwtModel.js';
+import {
+    HttpAuthenticationException,
+    InternalServerException,
+} from '../Exception/index.js';
+import { createController, isDevMode } from '../Lib/Util.js';
+import { InvalidatedJwtModel } from '../Model/index.js';
 
 /**
  * @param {passport.PassportStatic} passport
@@ -29,7 +31,7 @@ const JwtMiddleware = (passport) =>
                 }
 
                 const token = req.headers.authorization?.split(' ')[1];
-                const tokenInvalidated = await InvalidatedJwt.findOne({
+                const tokenInvalidated = await InvalidatedJwtModel.findOne({
                     token,
                 });
 
@@ -56,7 +58,7 @@ const JwtMiddleware = (passport) =>
 const logout = createController((req, res) => {
     const token = req.headers.authorization?.split(' ')[1];
 
-    InvalidatedJwt.findOneAndUpdate(
+    InvalidatedJwtModel.findOneAndUpdate(
         {
             token,
         },

@@ -2,12 +2,12 @@ import bodyParser from 'body-parser';
 import { Router } from 'express';
 import passport from 'passport';
 
-import { JwtMiddleware, logout } from '../Controllers/ApiController.js';
-import jwt from '../PassportStrategies/Jwt.js';
+import { JwtMiddleware, logout } from '../Controller/ApiController.js';
+import { JwtStrategy as useJwtPassportStrategy } from '../PassportStrategy/index.js';
 
 export default () => {
     const router = Router();
-    jwt(passport);
+    useJwtPassportStrategy(passport);
     router.use(passport.initialize());
     router.use(JwtMiddleware(passport));
     router.use(bodyParser.json());
