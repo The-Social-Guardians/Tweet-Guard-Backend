@@ -1,8 +1,7 @@
 import { config as configEnvVas } from 'dotenv';
 import express from 'express';
 
-import HttpException from './src/Exceptions/HttpException.js';
-import InternalServerException from './src/Exceptions/InternalServerException.js';
+import { HttpException, InternalServerException } from './src/Exceptions';
 import { connect as connectToDb } from './src/Lib/Db.js';
 import { isDevMode } from './src/Lib/Util.js';
 import apiRouter from './src/Routes/api.js';
