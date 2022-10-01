@@ -1,4 +1,4 @@
-import { config as configEnvVas } from 'dotenv';
+import { config as configEnvVars } from 'dotenv';
 import express from 'express';
 
 import { HttpException, InternalServerException } from './src/Exceptions';
@@ -8,7 +8,7 @@ import apiRouter from './src/Routes/api.js';
 import authRouter from './src/Routes/auth.js';
 import indexRouter from './src/Routes/index.js';
 
-configEnvVas();
+configEnvVars();
 connectToDb();
 
 const PORT = process.env.PORT || 5000;
