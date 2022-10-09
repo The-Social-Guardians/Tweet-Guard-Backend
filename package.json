@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "semantic-release": "semantic-release --branches main",
     "dev": "docker compose up -d && nodemon index.js",
-    "format": "prettier .  --write"
+    "format": "prettier .  --write",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,8 @@
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.3.0",
     "cz-conventional-changelog": "^3.3.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
     "nodemon": "^2.0.19",
     "prettier": "2.7.1",
     "semantic-release": "^19.0.3"

@@ -1,0 +1,3 @@
+{
+  "*.{js,jsx,json}": "prettier --ignore-path .gitignore --write"
+}
