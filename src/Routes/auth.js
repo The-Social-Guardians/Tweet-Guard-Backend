@@ -5,6 +5,7 @@ import session from 'express-session';
 import passport from 'passport';
 
 import {
+    logout,
     twitterAuth,
     twitterAuthCallback,
 } from '../Controllers/AuthController.js';
@@ -28,6 +29,7 @@ export default () => {
     router.use(passport.initialize());
     router.get('/twitter', twitterAuth);
     router.get('/twitter/callback', twitterAuthCallback);
+    router.get('/logout', logout);
 
     return router;
 };
